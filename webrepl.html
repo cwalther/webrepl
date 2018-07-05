@@ -107,6 +107,10 @@ function calculate_size(win) {
       });
       term.open(document.getElementById("term"));
       show_https_warning();
+      var args = window.location.search;
+      if (args.startsWith('?url=') && args.indexOf('&') == -1) {
+        document.getElementById('url').value = args.substr(5);
+      }
     };
     window.addEventListener('resize', function() {
         var size = calculate_size(self);
